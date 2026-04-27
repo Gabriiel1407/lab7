@@ -155,13 +155,15 @@ app.get("/quotes", async (req, res) => {
     }
 });
 
-app.get("/addQuote", (req, res) => {
-    const authors = [
-        { authorId: 1, name: "Albert Einstein" },
-        { authorId: 2, name: "Maya Angelou" }
-    ];
-    const categories = ["Motivation", "Life", "Science", "Love"];
-    res.render("addQuote", { authors, categories });
+app.get("/addQuote", async (req, res) => {
+    try {
+        const [authors] = await pool.query(`SELECT authorId, firstName, lastName FROM authors ORDER BY lastName, firstName`);
+        const categories = ["Motivation", "Life", "Science", "Love"];
+        res.render("addQuote", { authors, categories });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error loading add quote page");
+    }
 });
 
 app.post("/addQuote", requireAuth, async (req, res) => {
@@ -197,10 +199,7 @@ app.get("/updateQuote/:quoteId", async (req, res) => {
         if (!quoteId) return res.status(400).send("Invalid quote ID");
         const [rows] = await pool.query("SELECT * FROM quotes WHERE quoteId = ?", [quoteId]);
         if (rows.length === 0) return res.status(404).send("Quote not found");
-        const authors = [
-            { authorId: 1, name: "Albert Einstein" },
-            { authorId: 2, name: "Maya Angelou" }
-        ];
+        const [authors] = await pool.query(`SELECT authorId, firstName, lastName FROM authors ORDER BY lastName, firstName`);
         const categories = ["Motivation", "Life", "Science", "Love"];
         res.render("updateQuote", { quoteItem: rows[0], authors, categories });
     } catch (err) {

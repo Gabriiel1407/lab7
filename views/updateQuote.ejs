@@ -27,7 +27,7 @@
                         value="<%= author.authorId %>"
                         <%= quoteItem.authorId == author.authorId ? 'selected' : '' %>
                     >
-                        <%= author.name %>
+                        <%= author.firstName %> <%= author.lastName %>
                     </option>
                 <% }) %>
             </select>

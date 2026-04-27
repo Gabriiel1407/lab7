@@ -21,7 +21,7 @@
             <select name="authorId" required>
                 <option value="">Select an author</option>
                 <% authors.forEach(author => { %>
-                    <option value="<%= author.authorId %>"><%= author.name %></option>
+                    <option value="<%= author.authorId %>"><%= author.firstName %> <%= author.lastName %></option>
                 <% }) %>
             </select>
         </div>
