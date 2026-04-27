@@ -31,7 +31,7 @@ nav a {
 
 nav a:hover { background: rgba(255, 215, 0, 0.1); }
 
-/* HEADINGS */
+
 h1 {
   text-align: center;
   color: white;
@@ -44,7 +44,7 @@ h1 {
 
 h2 { color: gold; text-align: center; margin: 30px 0 10px; }
 
-/* LINKS */
+
 a { color: gold; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
@@ -56,7 +56,7 @@ a:hover { text-decoration: underline; }
 }
 .nav-links a:hover { background: gold; color: black; text-decoration: none; }
 
-/* HOME MENU */
+
 .home-menu {
   width: 80%;
   margin: 30px auto;
@@ -98,7 +98,7 @@ a:hover { text-decoration: underline; }
 
 .home-section ul li a:hover { border-color: gold; color: gold; text-decoration: none; }
 
-/* FORMS */
+
 form {
   display: flex;
   flex-wrap: wrap;
@@ -116,7 +116,7 @@ form div { width: 100%; display: flex; flex-direction: column; gap: 6px; }
 
 label { color: gold; font-size: 0.9em; }
 
-/* INPUTS */
+
 input[type="text"],
 input[type="number"],
 input[type="date"],
@@ -142,7 +142,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 input[type="radio"] { accent-color: gold; cursor: pointer; }
 
-/* BUTTONS */
+
 button {
   padding: 10px 20px;
   border: 2px solid gold;
@@ -157,7 +157,7 @@ button {
 button:hover { background: gold; color: black; }
 button[type="submit"] { width: 100%; margin-top: 8px; }
 
-/* CARDS */
+
 .card {
   background: #111;
   padding: 20px;
@@ -167,7 +167,7 @@ button[type="submit"] { width: 100%; margin-top: 8px; }
   border-radius: 10px;
 }
 
-/* MISC */
+
 .author { color: gold; cursor: pointer; font-weight: bold; }
 .error { color: red; text-align: center; font-weight: bold; margin-top: 15px; }
 .warning-box {
@@ -181,7 +181,7 @@ button[type="submit"] { width: 100%; margin-top: 8px; }
   background: #0d0d0d;
 }
 
-/* MODAL */
+
 .modal {
   display: none;
   position: fixed;
@@ -209,7 +209,6 @@ button[type="submit"] { width: 100%; margin-top: 8px; }
   border: 2px solid gold;
 }
 
-/* RESPONSIVE */
 @media (max-width: 700px) {
   h1, form, .card, .home-menu, .warning-box { width: 95%; }
   .home-menu { grid-template-columns: 1fr; }

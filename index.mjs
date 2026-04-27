@@ -221,7 +221,6 @@ app.post("/updateQuote", requireAuth, async (req, res) => {
     }
 });
 
-// Show quotes list for delete
 app.get("/deleteQuotes", async (req, res) => {
     try {
         const [quotes] = await pool.query(`
@@ -238,7 +237,6 @@ app.get("/deleteQuotes", async (req, res) => {
     }
 });
 
-// Delete quote — redirects back to deleteQuotes
 app.post("/deleteQuote", requireAuth, async (req, res) => {
     try {
         const quoteId = parseInt(req.body.quoteId);
@@ -253,7 +251,7 @@ app.post("/deleteQuote", requireAuth, async (req, res) => {
 });
 
 // --------------------------------------------------
-// AUTH
+// USER LOGIN - LOGOUT
 // --------------------------------------------------
 app.post("/login", async (req, res) => {
     const { username, password } = req.body;
