@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Quote</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Update Quote</h1>
+    <p><a href="/updateQuotes">Back to Quotes List</a></p>
+
+    <form action="/updateQuote" method="POST">
+        <input type="hidden" name="quoteId" value="<%= quoteItem.quoteId %>">
+
+        <div>
+            <label>Quote</label><br>
+            <textarea name="quote" rows="5" cols="60" required><%= quoteItem.quote %></textarea>
+        </div>
+
+        <div>
+            <label>Author</label>
+            <select name="authorId" required>
+                <option value="">Select an author</option>
+                <% authors.forEach(author => { %>
+                    <option
+                        value="<%= author.authorId %>"
+                        <%= quoteItem.authorId == author.authorId ? 'selected' : '' %>
+                    >
+                        <%= author.name %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div>
+            <label>Category</label>
+            <select name="category" required>
+                <option value="">Select a category</option>
+                <% categories.forEach(category => { %>
+                    <option
+                        value="<%= category %>"
+                        <%= quoteItem.category === category ? 'selected' : '' %>
+                    >
+                        <%= category %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div>
+            <label>Likes</label>
+            <input type="number" name="likes" min="0" value="<%= quoteItem.likes || 0 %>">
+        </div>
+
+        <br>
+        <button type="submit">Update Quote</button>
+    </form>
+</body>
+</html>

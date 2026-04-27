@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Quote</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Add Quote</h1>
+    <p><a href="/">Back Home</a></p>
+
+    <form action="/addQuote" method="POST">
+        <div>
+            <label>Quote</label><br>
+            <textarea name="quote" rows="5" cols="60" required></textarea>
+        </div>
+
+        <div>
+            <label>Author</label>
+            <select name="authorId" required>
+                <option value="">Select an author</option>
+                <% authors.forEach(author => { %>
+                    <option value="<%= author.authorId %>"><%= author.name %></option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div>
+            <label>Category</label>
+            <select name="category" required>
+                <option value="">Select a category</option>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category %>"><%= category %></option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div>
+            <label>Likes</label>
+            <input type="number" name="likes" value="0" min="0">
+        </div>
+
+        <br>
+        <button type="submit">Add Quote</button>
+    </form>
+</body>
+</html>

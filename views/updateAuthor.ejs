@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Author</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Update Author</h1>
+    <p><a href="/updateAuthors">Back to Authors List</a></p>
+
+    <form action="/updateAuthor" method="POST">
+        <input type="hidden" name="authorId" value="<%= author.authorId %>">
+
+        <div>
+            <label>First Name</label>
+            <input type="text" name="firstName" value="<%= author.firstName %>" required>
+        </div>
+
+        <div>
+            <label>Last Name</label>
+            <input type="text" name="lastName" value="<%= author.lastName %>" required>
+        </div>
+
+        <div>
+            <label>Date of Birth</label>
+            <input
+                type="date"
+                name="dob"
+                value="<%= author.dob ? author.dob.toISOString().slice(0,10) : '' %>"
+            >
+        </div>
+
+        <div>
+            <label>Date of Death</label>
+            <input
+                type="date"
+                name="dod"
+                value="<%= author.dod ? author.dod.toISOString().slice(0,10) : '' %>"
+            >
+        </div>
+
+        <div>
+            <label>Sex</label>
+            <input
+                type="radio"
+                name="sex"
+                value="Male"
+                <%= author.sex === 'Male' ? 'checked' : '' %>
+            > Male
+
+            <input
+                type="radio"
+                name="sex"
+                value="Female"
+                <%= author.sex === 'Female' ? 'checked' : '' %>
+            > Female
+        </div>
+
+        <div>
+            <label>Profession</label>
+            <input type="text" name="profession" value="<%= author.profession || '' %>">
+        </div>
+
+        <div>
+            <label>Country</label>
+            <input type="text" name="country" value="<%= author.country || '' %>">
+        </div>
+
+        <div>
+            <label>Portrait URL</label>
+            <input type="text" name="portrait" value="<%= author.portrait || '' %>">
+        </div>
+
+        <div>
+            <label>Biography</label><br>
+            <textarea name="biography" rows="6" cols="50"><%= author.biography || '' %></textarea>
+        </div>
+
+        <br>
+        <button type="submit">Update Author</button>
+    </form>
+</body>
+</html>

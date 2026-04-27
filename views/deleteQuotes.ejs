@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<h1>Quotes</h1>
+<p><a href="/">Back Home</a></p>
+
+<% if (quotes.length === 0) { %>
+    <p>No quotes found.</p>
+<% } else { %>
+
+    <% quotes.forEach(q => { %>
+
+        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+
+            <p><strong>Quote ID:</strong> <%= q.quoteId %></p>
+
+            <p>
+                <strong>Quote:</strong><br>
+                "<%= q.quote %>"
+            </p>
+
+            <p>
+                <strong>Author:</strong>
+                <%= q.firstName ? q.firstName + " " + q.lastName : "Unknown author" %>
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                <%= q.category || "" %>
+            </p>
+
+            <p>
+                <strong>Likes:</strong>
+                <%= q.likes || 0 %>
+            </p>
+
+            <form action="/deleteQuote" method="POST"
+                  onsubmit="return confirm('Delete this quote?')">
+
+                <input type="hidden" name="quoteId" value="<%= q.quoteId %>">
+
+                <button type="submit">
+                    Delete
+                </button>
+
+            </form>
+
+        </div>
+
+    <% }) %>
+
+<% } %>
+
+</body>
+</html>

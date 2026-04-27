@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famous Quotes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+    <a href="/">Home</a>
+
+    <% if (user) { %>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <a href="/login">Login</a>
+    <% } %>
+    </nav>
+    <h1>Quotes Website</h1>
+    <div class="home-menu">
+        <div class="home-section">
+            <h2>Authors</h2>
+            <ul>
+                <li><a href="/authors">View Authors</a></li>
+                <li><a href="/addAuthor">Add Author</a></li>
+                <li><a href="/updateAuthors">Update Authors</a></li>
+                <li><a href="/deleteAuthors">Delete Authors</a></li>
+            </ul>
+        </div>
+        <div class="home-section">
+            <h2>Quotes</h2>
+            <ul>
+                <li><a href="/quotes">View Quotes</a></li>
+                <li><a href="/addQuote">Add Quote</a></li>
+                <li><a href="/updateQuotes">Update Quotes</a></li>
+                <li><a href="/deleteQuotes">Delete Quotes</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
